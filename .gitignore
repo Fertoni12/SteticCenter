@@ -1,0 +1,28 @@
+# Archivos y carpetas del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración de entornos de desarrollo
+*.env
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Archivos generados
+dist/
+build/
+*.zip
+*.tar
+*.gz
+
+# Caché
+*.cache
+*.tmp
+.cache/
+
+# Configuración de Git
+.gitignore
+
+# Archivos del sistema operativo
+Desktop.ini
