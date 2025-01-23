@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Favicon -->
-  <link rel="icon" href="../img/logo.png" type="image/x-icon">
+  <link rel="icon" href="../img/icon.png" type="image/x-icon">
   <title>Stetic Center</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Agregar el link para el ícono de WhatsApp -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -16,33 +14,37 @@
   <header>
     <div class="container">
       <div class="logo">
+        <a href="index.html">
         <img src="../img/logo.png" alt="Logo del Spa">
+      </a>
       </div>
       <nav class="navbar">
         <ul class="menu">
           <li><a href="#inicio">Inicio</a></li>
           <li class="dropdown">
-            <a href="#servicios">Servicios</a>
+            <a href="#servicios">Servicios <span class="arrow"></span></a>
             <ul class="submenu">
               <li><a href="#faciales">Tratamientos Faciales</a></li>
               <li><a href="#relajantes">Terapias Relajantes</a></li>
               <li><a href="#moldeo">Moldeo y Reducción</a></li>
             </ul>
           </li>
+          
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
       <div class="cta">
-        <!-- Botón con ícono de WhatsApp -->
         <a href="#reserva" class="btn"><i class="fab fa-whatsapp"></i> Reserva ahora</a>
       </div>
       <div class="menu-toggle">
         <span></span>
         <span></span>
         <span></span>
+        <p>Menu</p>
       </div>
     </div>
   </header>
+
   <script src="script.js"></script>
 </body>
 </html>
