@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,6 @@
   <link rel="icon" href="../img/icon.png" type="image/x-icon">
   <title>Stetic Center</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -45,6 +44,66 @@
     </div>
   </header>
 
+
+    <!-- Slider -->
+    <div class="slider-container">
+      <div class="slider-images">
+          <img src="../img/banner1.png" alt="Banner 1">
+          <img src="../img/banner2.png" alt="Banner 2">
+          <img src="../img/banner3.png" alt="Banner 3">
+      </div>
+      <!-- Botones de navegación -->
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  
+      <!-- Indicadores (puntos) -->
+      <div class="slider-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+      </div>
+  </div>
+  
+  <section class="casos-renovacion">
+    <h2 class="titulo-casos">Casos Exitosos de Renovación</h2>
+    
+    <div class="contenedor-casos">
+      
+      <!-- Sección Moldeo -->
+      <div class="caso">
+        <h3 class="subtitulo-casos">Moldeo</h3>
+        <div class="container">
+          <div class="comparison">
+            <figure>
+              <div class="handle"></div>
+              <div class="divisor"></div>
+            </figure>
+            <input type="range" min="0" max="100" value="50" class="slider" oninput="moveDivisor(this)">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sección Facial -->
+      <div class="caso">
+        <h3 class="subtitulo-casos">Facial</h3>
+        <div class="container">
+          <div class="comparison">
+            <figure class="figure1">
+              <div class="handle"></div>
+              <div class="divisor1"></div>
+            </figure>
+            <input type="range" min="0" max="100" value="50" class="slider" oninput="moveDivisor(this)">
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+    
   <script src="script.js"></script>
 </body>
 </html>
+
+
+

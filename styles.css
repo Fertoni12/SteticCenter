@@ -9,9 +9,10 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  background-color: #f9f9f9;
   color: #333;
-  font-weight: 300; /* Ligeramente más delgado */
+  background-image: url(../img/fondo.png) !important;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Header */
@@ -25,10 +26,11 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra más destacada abajo */
   border-bottom: 1px solid #e0e0e0;
   transition: background-color 0.3s ease;
 }
+
 
 header:hover {
   background-color: #e3f5f7;
@@ -42,7 +44,7 @@ header:hover {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;
+  gap: 80px;
 }
 
 /* Logo */
@@ -62,7 +64,7 @@ header:hover {
 .navbar .menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px;
   margin: 0;
 }
 
@@ -189,7 +191,7 @@ header:hover {
 .menu-toggle span {
   height: 4px;
   width: 30px;
-  background-color: #1393a4;
+  background-color: #000000;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -267,6 +269,8 @@ header:hover {
     transition: background-color 0.3s ease;
   }
 
+  
+
   .btn-reserva:hover {
     background-color: #61c486;
   }
@@ -291,5 +295,314 @@ header:hover {
   .menu-active .dropdown:hover .submenu {
     display: block;
     margin-top: 10px; /* Espacio entre los elementos */
+  }
+}
+/*_______________________________________________ */
+
+/* Estilo general para los sliders */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra en la parte de abajo */
+}
+
+.slider-images {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.slider-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 50%;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Estilo de los puntos de navegación */
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.dot:hover {
+  opacity: 1;
+}
+
+.active {
+  background-color: #e3a319; /* Color del punto activo */
+  opacity: 1;
+}
+
+
+/* Estilo para pantalla pequeña */
+@media (max-width: 768px) {
+  button {
+      font-size: 20px;
+      padding: 8px;
+  }
+}
+
+/* ______________________________________________________________ */
+
+
+/* Estilo principal para la sección de Casos Exitosos de Renovación */
+.casos-renovacion {
+  background-image: url(../img/fondo.png);
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+}
+
+.titulo-casos {
+  text-align: center;
+  color: #1393a4;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de las dos secciones (Moldeo y Facial) */
+.contenedor-casos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Espacio entre los cuadros */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilo para cada caso (Moldeo o Facial) */
+.caso {
+  flex: 1 1 400px; /* Ajusta el tamaño base de cada cuadro */
+  max-width: 400px; /* Tamaño máximo */
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column; /* Contenido alineado verticalmente */
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitulo-casos {
+  text-align: center;
+  color: #1393a4;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.descripcion-casos {
+  text-align: justify;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.imagen-casos {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Puede ser 'contain' si no quieres que se recorte */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Estilo general para los divisores de comparación */
+.comparison {
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.comparison figure { 
+  position: absolute;
+	background-image: url(../img/moldeodespues1.jpg);
+	background-size: cover;
+	font-size: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0; 
+}
+
+.comparison .figure1 { 
+  position: absolute;
+	background-image: url(../img/facialdespues.png);
+	background-size: cover;
+	font-size: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0; 
+}
+
+.comparison .divisor, .divisor1 { 
+  background-image: url(../img/moldeoantes1.jpg);
+	background-size: cover;
+	position: absolute;
+	width: 50%; 
+	box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+	bottom: 0; height: 100%;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    width: 4px;
+    height: calc(50% - 25px);
+    background: white;
+    z-index: 3;
+  }
+  &::before {
+    top: 0;
+    box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
+  }
+  &::after {
+    bottom: 0;
+    box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
+  }
+}
+
+.comparison .divisor1 { 
+  background-image: url(../img/facialantes.png);
+	background-size: cover;
+	position: absolute;
+	width: 50%; 
+	box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+	bottom: 0; height: 100%;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    width: 4px;
+    height: calc(50% - 25px);
+    background: white;
+    z-index: 3;
+  }
+  &::before {
+    top: 0;
+    box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
+  }
+  &::after {
+    bottom: 0;
+    box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
+  }
+}
+
+
+.comparison .handle {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 6px inset transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+  }
+  &::before {
+    border-right: 6px solid white;
+    left: 50%;
+    margin-left: -17px;
+  }
+  &::after {
+    border-left: 6px solid white;
+    right: 50%;
+    margin-right: -17px;
+  }
+}
+
+.comparison input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  top: 50%; 
+  left: -25px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  width: calc(100% + 50px); 
+  z-index: 2;
+
+  &:focus,
+  &:active {
+    border: none;
+    outline: none;
+  }
+}
+
+.comparison input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: transparent;
+  border: 4px solid white;
+  box-shadow: 0 0 8px 1px rgba(0,0,0,.3);
+}
+
+.comparison input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  height: 15px;
+  width: 100%;
+  background-color: transparent; 
+  position: relative;
+  outline: none;    
+}
+
+/* Estilo para pantalla pequeña */
+@media (max-width: 768px) {
+  .titulo-casos {
+    font-size: 1.6em;
   }
 }
