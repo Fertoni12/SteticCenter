@@ -387,7 +387,7 @@ button:hover {
 
 /* Estilo principal para la sección de Casos Exitosos de Renovación */
 .casos-renovacion {
-  background-image: url(../img/fondo.png);
+  background-color: transparent;
   background-size: cover;
   background-position: center;
   padding: 50px 0;
@@ -464,17 +464,8 @@ button:hover {
 	margin: 0; 
 }
 
-.comparison .figure1 { 
-  position: absolute;
-	background-image: url(../img/facialdespues.png);
-	background-size: cover;
-	font-size: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0; 
-}
 
-.comparison .divisor, .divisor1 { 
+.comparison .divisor { 
   background-image: url(../img/moldeoantes1.jpg);
 	background-size: cover;
 	position: absolute;
@@ -501,35 +492,6 @@ button:hover {
     box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
   }
 }
-
-.comparison .divisor1 { 
-  background-image: url(../img/facialantes.png);
-	background-size: cover;
-	position: absolute;
-	width: 50%; 
-	box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
-	bottom: 0; height: 100%;
-  
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    right: -2px;
-    width: 4px;
-    height: calc(50% - 25px);
-    background: white;
-    z-index: 3;
-  }
-  &::before {
-    top: 0;
-    box-shadow: 0 -3px 8px 1px rgba(0,0,0,.3);
-  }
-  &::after {
-    bottom: 0;
-    box-shadow: 0 3px 8px 1px rgba(0,0,0,.3);
-  }
-}
-
 
 .comparison .handle {
   position: absolute;
@@ -600,9 +562,269 @@ button:hover {
   outline: none;    
 }
 
+/* Línea blanca con sombra para separar secciones */
+.linea-separacion {
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+  margin-top: 30px; /* Espaciado entre la sección y la línea */
+}
+
 /* Estilo para pantalla pequeña */
 @media (max-width: 768px) {
   .titulo-casos {
     font-size: 1.6em;
+  }
+}
+
+/* __________________________ */
+
+ /* Margen general para la sección */
+ .servicios {
+  padding: 50px 0;
+  background-color: transparent;
+}
+
+.titulo-servicios {
+  text-align: center;
+  color: #1393A4;
+  font-size: 2.2em;
+  margin-bottom: 40px;
+}
+
+/* Contenedor con márgenes laterales */
+.contenedor-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px; /* Ancho máximo ajustado */
+  margin: 0 auto; /* Centrado */
+  padding: 0 20px; /* Márgenes laterales */
+  box-sizing: border-box;
+}
+
+/* Estilo de las cards */
+.card {
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: 280px;
+  height: 400px;
+  background-color: #f2f2f2;
+  border-radius: 12px; /* Mantén solo una propiedad de border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Cambié 'visible' por 'hidden' para asegurarnos de que el border-radius se vea correctamente */
+  position: relative;
+}
+
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* No afectes la visibilidad o el z-index de los elementos del arco o el texto */
+}
+
+
+/* Imagen dentro de la tarjeta */
+.imagen-card {
+  width: 100%;
+  height: 80%; /* Asignamos una mayor altura a la imagen dentro de la tarjeta */
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Estilo para el título dentro del arco */
+.titulo-card {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  z-index: 2; /* Asegura que el texto quede por encima del arco */
+  display: flex;
+  align-items: center; /* Centra verticalmente el texto */
+  justify-content: center; /* Centra horizontalmente el texto */
+  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+}
+
+
+/* Estilo del arco */
+.arco {
+  background-color: #1393A4;
+  clip-path: ellipse(90% 100% at 50% 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* Ajusta la altura del arco */
+  z-index: 1;
+  display: flex;
+  align-items: center; /* Centra el contenido dentro del arco verticalmente */
+  justify-content: center; /* Centra el contenido dentro del arco horizontalmente */
+}
+
+/* Responsive: Ajustes en pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor-servicios {
+    gap: 25px;
+  }
+
+  .card {
+    flex: 1 1 calc(100% - 30px); /* Cada card ocupa menos espacio y tiene margen */
+    max-width: 75%;
+    margin: 0 15px; /* Asegura que las cards no se peguen al borde */
+    height: auto; /* Permite que la altura de la card se ajuste de acuerdo con el contenido */
+  }
+
+  .imagen-card {
+    height: 400px; /* Ajuste la altura de la imagen en pantallas pequeñas */
+  }
+
+  .titulo-servicios {
+    font-size: 1.8em; /* Ajusta el tamaño del título en móvil */
+  }
+
+  /* Ajuste en el arco */
+  .arco {
+    height: 70px; /* Ajusta la altura del arco para pantallas más pequeñas */
+  }
+
+  .titulo-card {
+    font-size: 1em; /* Ajusta el tamaño de la fuente del título dentro del arco */
+  }
+}
+
+/* Estilo para la imagen ancha debajo de la sección */
+.imagen-ancha {
+  width: 100%;
+  height: 700px; /* Ajusta la altura de la imagen como desees */
+  background-image: url(../img/tulugarderelajacion1.png); /* Agrega la imagen que desees */
+  background-size: cover; /* Asegura que la imagen cubra todo el ancho */
+  background-position: center; /* Centra la imagen */
+  margin-top: 40px; /* Espaciado entre la línea blanca y la imagen */
+}
+
+/* Línea blanca con sombra para separar secciones */
+.linea-separacion-servicios {
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+  margin-top: 80px; /* Espaciado entre la sección y la línea */
+}
+
+
+/* __________________________ */
+/* Estilo general para la sección de contacto */
+.contacto {
+  padding: 50px 0;
+  background-color: transparent;
+}
+
+.titulo-contacto {
+  text-align: center;
+  color: #1393A4;
+  font-size: 2.2em;
+  margin-bottom: 40px;
+}
+
+/* Contenedor para dividir la sección en dos partes */
+.contenedor-contacto {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Estilo de la parte izquierda */
+.izquierda-contacto {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.info-contacto {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.info-contacto i {
+  font-size: 1.5em;
+}
+
+.info-contacto span {
+  color: black;
+  font-size: 1.1em;
+}
+
+/* Estilo de la parte derecha */
+.derecha-contacto {
+  flex: 1;
+}
+
+.mapa {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.boton-reserva {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Añadido margen para separar el botón */
+  z-index: 1; /* Asegura que el botón se muestre por encima de otros elementos */
+  position: relative;
+}
+
+.boton-reserva i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.boton-reserva button {
+  padding: 10px 20px;
+  background-color: #1393A4;
+  color: white;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boton-reserva button:hover {
+  background-color: #0a7f88;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contenedor-contacto {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .izquierda-contacto {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  
+  .mapa {
+    height: 200px;
+  }
+  
+  .boton-reserva button {
+    width: 100%;
   }
 }

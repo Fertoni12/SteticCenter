@@ -88,9 +88,9 @@
         <h3 class="subtitulo-casos">Facial</h3>
         <div class="container">
           <div class="comparison">
-            <figure class="figure1">
+            <figure class="figure">
               <div class="handle"></div>
-              <div class="divisor1"></div>
+              <div class="divisor"></div>
             </figure>
             <input type="range" min="0" max="100" value="50" class="slider" oninput="moveDivisor(this)">
           </div>
@@ -98,9 +98,98 @@
       </div>
   
     </div>
+
+    <!-- Línea blanca con sombra -->
+    <div class="linea-separacion"></div>
   </section>
   
+
+  <!-- _________________________________________________________________________________ -->
+
+
+  <section class="servicios">
+    <h2 class="titulo-servicios">Conoce lo que tenemos para ti</h2>
+  
+    <div class="contenedor-servicios">
+      <!-- Card: Tratamientos Faciales -->
+      <div class="card">
+        <div class="imagen-card" style="background-image: url(../img/faciales.png);"></div>
+        <div class="titulo-card arco">Tratamientos Faciales</div>
+      </div>
+  
+      <!-- Card: Terapias Relajantes -->
+      <div class="card">
+        <div class="imagen-card" style="background-image: url(../img/relajantes.png);"></div>
+        <div class="titulo-card arco">Terapias Relajantes</div>
+      </div>
+  
+      <!-- Card: Moldeo y Reducción -->
+      <div class="card">
+        <div class="imagen-card" style="background-image: url(../img/reduccion.png);"></div>
+        <div class="titulo-card arco">Moldeo y Reducción</div>
+      </div>
+    </div>
+
+    <!-- Imagen que cubre todo el ancho -->
+  <div class="imagen-ancha"></div>
+
+    <!-- Línea blanca con sombra -->
+    <div class="linea-separacion-servicios"></div>
+  </section>
     
+ <!-- _________________________________________________________________________________ -->
+ <section class="contacto">
+  <h2 class="titulo-contacto">Contacto</h2>
+  
+  <div class="contenedor-contacto">
+    <!-- Parte izquierda de contacto -->
+    <div class="izquierda-contacto">
+      <div class="info-contacto">
+        <i class="icono fas fa-phone" style="color: #1393A4;"></i>
+        <span><strong>Teléfono:</strong> 7396-4295</span>
+      </div>
+      <div class="info-contacto">
+        <i class="icono fas fa-map-marker-alt" style="color: #1393A4;"></i>
+        <span><strong>Dirección:</strong> Stetic Center, Colonia Ciudad Satélite, Calle Constitución #i-12, San Salvador CP 1101</span>
+      </div>
+      <div class="info-contacto">
+        <i class="icono fas fa-clock" style="color: #1393A4;"></i>
+        <span><strong>Horarios:</strong> Lunes a viernes 9:00 am - 6:00 pm <br>
+        Sábado 9:00 am - 4:00 pm <br> 
+        Domingo 9:00 am - 3:00 pm</span>
+      </div>
+      <div class="info-contacto">
+        <i class="icono fas fa-envelope" style="color: #1393A4;"></i>
+        <span><strong>Correo Electrónico:</strong> esteticafacialycorporal.sv@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- Parte derecha de contacto -->
+    <div class="derecha-contacto">
+      <div class="mapa">
+        <!-- Mapa de Google con dirección visible -->
+        <iframe 
+          src="https://www.google.com/maps/embed/v1/place?q=Stetic%20Center%2C%20Colonia%20Ciudad%20Sat%C3%A9lite%2C%20Calle%20Constituci%C3%B3n%20%23i-12%2C%20San%20Salvador%20CP%201101&key=AIzaSyBMB-1v-6vPjh5-A8hhyaXsAvXu9rMkrP0" 
+          width="100%" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+      <!-- Botón fuera del contenedor del mapa, ahora abajo -->
+      <div class="boton-reserva">
+        <i class="icono fab fa-whatsapp" style="color: white;"></i>
+        <button>¡Reserva tu cita!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
   <script src="script.js"></script>
 </body>
 </html>
