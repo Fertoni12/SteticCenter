@@ -10,9 +10,10 @@
 body {
   font-family: 'Lato', sans-serif;
   color: #333;
-  background-image: url(../img/fondo.png) !important;
-  background-size: cover;
+  background-image: url('../img/fondo.png'); /* Ruta relativa */
+  background-size: cover; /* Ajusta la imagen para que cubra toda el área */
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Header */
@@ -612,10 +613,13 @@ button:hover {
 
 /* _____________________________________________________________________________________ */
 
- /* Margen general para la sección */
- .servicios {
+.servicios {
+  position: relative;
   padding: 30px 0;
-  background-color: transparent;
+  background-color: transparent; /* Mantiene el fondo del body visible */
+  z-index: 1; /* Se coloca encima del fondo, pero sin afectarlo */
+  overflow: hidden; /* Asegura que no haya efectos extraños con el contenido */
+  width: 100%; /* Asegura que ocupe todo el ancho */
 }
 
 .titulo-servicios {

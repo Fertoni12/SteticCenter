@@ -10,9 +10,10 @@
 body {
   font-family: 'Lato', sans-serif;
   color: #333;
-  background-image: url(../img/fondo.png) !important;
-  background-size: cover;
+  background-image: url('../img/fondo.png'); /* Ruta relativa */
+  background-size: cover; /* Ajusta la imagen para que cubra toda el área */
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Header */
@@ -30,7 +31,6 @@ header {
   border-bottom: 1px solid #e0e0e0;
   transition: background-color 0.3s ease;
 }
-
 
 header:hover {
   background-color: #e3f5f7;
@@ -310,6 +310,7 @@ header:hover {
   height: auto;
   text-align: center;
   overflow: hidden; /* Evita desbordamientos si la imagen no cabe */
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
 .banner-container img {
@@ -325,14 +326,6 @@ header:hover {
     object-fit: cover; /* Mantiene la relación de aspecto sin deformar la imagen */
     margin-top: 80px;
   }
-}
-
-/* Línea superior del footer */
-.footer-top-line {
-  width: 100%;
-  height: 5px;
-  background-color: white;
-  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -381,9 +374,9 @@ header:hover {
 }
 
 .facial-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #61C486;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .facial-description {
@@ -392,17 +385,33 @@ header:hover {
   margin-bottom: 15px;
 }
 
+/* Lista personalizada con un solo punto inicial */
 .facial-items {
-  list-style-type: none;
+  list-style: none; /* Elimina el estilo por defecto de la lista */
   padding: 0;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .facial-item {
+  display: flex;
+  align-items: flex-start; /* Alinea el punto con los textos */
+  gap: 10px; /* Espacio entre el punto y los textos */
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.main-item {
+  font-size: 1.2rem; /* Tamaño del punto */
+  color: #1294A7; /* Color del punto */
+  margin-right: 1px; /* Espaciado entre el punto y el texto */
+}
+
+.sub-items {
   font-size: 1rem;
   color: #1294A7;
-  margin-bottom: 5px;
+  line-height: 1.5; /* Espaciado entre líneas */
 }
+
 
 .facial-cauterizer {
   display: flex;
@@ -447,13 +456,15 @@ header:hover {
 
 .price-text {
   font-size: 1rem;
-  color: #333;
+  color: #1294A7;
+  font-weight: bold;
 }
 
 .price-value {
   font-size: 1.5rem;
   color: #333;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 /* Parte derecha (centrado vertical y horizontal) */
