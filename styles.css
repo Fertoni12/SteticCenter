@@ -638,6 +638,7 @@ button:hover {
   box-sizing: border-box;
 }
 
+
 /* Estilo de las cards */
 .card {
   flex: 1 1 calc(33.333% - 40px);
@@ -661,6 +662,13 @@ button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   /* No afectes la visibilidad o el z-index de los elementos del arco o el texto */
 }
+
+a.card {
+  text-decoration: none; /* Elimina subrayados de enlaces */
+  color: inherit; /* Mantiene el color original del texto */
+  display: block; /* Asegura que el enlace se comporte como un contenedor completo */
+}
+
 
 
 /* Imagen dentro de la tarjeta */
