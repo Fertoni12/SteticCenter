@@ -306,28 +306,92 @@ header:hover {
 
 /* Banner */
 .banner-container {
+  position: relative;
   width: 100%;
   height: auto;
-  text-align: center;
-  overflow: hidden; /* Evita desbordamientos si la imagen no cabe */
-  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
+  text-align: left; /* Texto alineado a la izquierda */
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra en la parte de abajo */
 }
 
-.banner-container img {
+.banner-container video {
   width: 100%;
   height: auto;
-  max-width: 100%; /* Asegura que la imagen no se estire más allá del contenedor */
+  max-width: 100%;
   display: block;
+  object-fit: cover;
 }
 
-/* Estilo para pantallas pequeñas */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ /* background: rgba(0, 0, 0, 0.5); /* Malla semitransparente oscura */
+  z-index: 1; /* Encima del video */
+}
+
+.banner-text {
+  position: absolute;
+  top: 45%; /* Centrado verticalmente */
+  left: 5%; /* Posicionado a la izquierda */
+  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
+  z-index: 2; /* Encima de la malla */
+  text-align: center;
+}
+
+.banner-text h1 {
+  font-size: 5.5rem; /* Título grande */
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif; /* Fuente Montserrat ExtraBold */
+  font-weight: 800;
+  color: #1294a7; /* Color solicitado */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  line-height: 0.9; /* Espaciado entre las dos líneas */
+}
+
+.banner-text p {
+  font-size: 3.5rem; /* Frase más pequeña */
+  font-family: 'Tangerine', cursive; /* Fuente Tangerine Bold */
+  font-weight: 700; /* Negrita */
+  color: #ffffff; /* Color blanco */
+  margin: 0; /* Sin margen extra */
+}
+
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
-  .banner-container img {
-    object-fit: cover; /* Mantiene la relación de aspecto sin deformar la imagen */
-    margin-top: 80px;
+  .banner-text {
+    top: 70%; /* Ajusta la posición para pantallas pequeñas */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -60%); /* Centrado vertical y horizontal */
+  }
+
+  .banner-text h1 {
+    font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
+    line-height: 0.8; /* Reduce espacio entre líneas */
+  }
+
+  .banner-text p {
+    font-size: 1.2rem; /* Ajuste del tamaño de la frase */
   }
 }
 
+@media (max-width: 480px) {
+  .banner-text {
+    top: 55%; /* Ajusta la posición aún más para pantallas extra pequeñas */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+  }
+
+  .banner-text h1 {
+    font-size: 1.8rem; /* Título más pequeño */
+  }
+
+  .banner-text p {
+    font-size: 1rem; /* Frase más pequeña */
+  }
+}
 
 /* ______________________________________________________________ */
 
@@ -340,7 +404,7 @@ header:hover {
 }
 
 .facial-clinicos-title {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   color: black;
   margin-bottom: 40px;
   font-weight: bold;
@@ -461,10 +525,16 @@ header:hover {
 }
 
 .price-value {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #333;
   font-weight: bold;
   margin-left: 10px;
+  margin-top: 5px;
+}
+
+.price-value sup {
+  font-size: 0.6em; /* Hace el número más pequeño */
+  vertical-align: super; /* Eleva el número */
 }
 
 /* Parte derecha (centrado vertical y horizontal) */
@@ -521,7 +591,7 @@ header:hover {
 /* Estilos de responsividad */
 @media (max-width: 768px) {
   .facial-clinicos-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .facial-container {
@@ -537,16 +607,20 @@ header:hover {
   }
 
   .facial-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .facial-description {
     font-size: 0.8rem;
   }
 
-  .price-text, .price-value {
+  .price-text{
     font-size: 1rem;
   }
+}
+
+.price-value {
+  font-size: 1.5rem;
 }
 
 
