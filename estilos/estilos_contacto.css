@@ -590,30 +590,36 @@ _________________________________________________________ */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  z-index: 1;
+  margin-top: 20px; /* Margen superior para separación */
+  z-index: 1; /* Asegura que el botón se muestre por encima de otros elementos */
   position: relative;
 }
 
-.boton-reserva button {
-  display: flex;
+.boton-reserva a {
+  display: flex; /* Para alinear el contenido del botón */
   align-items: center; /* Centra verticalmente el ícono y el texto */
   justify-content: center; /* Centra horizontalmente el contenido */
   padding: 10px 20px;
   background-color: #61c486;
   color: white;
+  text-decoration: none; /* Elimina el subrayado del enlace */
   font-size: 1.1em;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
-  height: 50px; /* Ajusta la altura del botón para asegurar que el contenido esté centrado */
+  transition: background-color 0.3s ease; /* Suaviza el cambio de color */
 }
 
-.boton-reserva button i {
+.boton-reserva a:hover {
+  background-color: #4ca56e; /* Cambia el color al pasar el mouse */
+}
+
+.boton-reserva a i {
   margin-right: 10px; /* Espaciado entre el ícono y el texto */
   font-size: 1.5em; /* Ajusta el tamaño del ícono */
   color: white;
+  margin-top: 5px;
 }
+
 
 
 /* Responsividad */

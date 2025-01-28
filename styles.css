@@ -16,6 +16,8 @@ body {
   background-repeat: no-repeat;
 }
 
+
+
 /* Header */
 header {
   position: fixed;
@@ -510,6 +512,8 @@ button:hover {
   background-size: cover;
 }
 
+
+
 .comparison figure { 
   position: absolute;
 	background-size: cover;
@@ -614,6 +618,8 @@ button:hover {
   position: relative;
   outline: none;    
 }
+
+
 
 /* Línea blanca con sombra para separar secciones */
 .linea-separacion {
@@ -769,13 +775,14 @@ a.card {
 
 /* Estilo para la imagen ancha debajo de la sección */
 .imagen-ancha {
-  width: 100%;
-  height: auto; /* Deja que la imagen tome la altura de acuerdo con su proporción */
-  background-image: url(../img/tulugarderelajacion1.png); /* Agrega la imagen que desees */
-  background-size: cover; /* Asegura que la imagen cubra todo el ancho */
+  width: 70%; /* Reduce el ancho al 80% para hacerla más pequeña */
+  height: auto; /* Mantiene la proporción de la imagen */
+  background-image: url(../img/tulugarderelajacion1.png); /* Imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra el área */
   background-position: center; /* Centra la imagen */
-  margin-top: 40px; /* Espaciado entre la línea blanca y la imagen */
-  aspect-ratio: 2 / 1; /* Ajusta la relación de aspecto para mantener la proporción */
+  margin: 40px auto; /* Espaciado superior y centra la imagen horizontalmente */
+  aspect-ratio: 2 / 1; /* Mantiene una relación de aspecto 2:1 */
+  border-radius: 12px; /* Opcional: Agrega esquinas redondeadas */
 }
 
 /* Línea blanca con sombra para separar secciones */
@@ -855,25 +862,30 @@ a.card {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px; /* Añadido margen para separar el botón */
+  margin-top: 20px; /* Margen superior para separación */
   z-index: 1; /* Asegura que el botón se muestre por encima de otros elementos */
   position: relative;
 }
 
-.boton-reserva button {
+.boton-reserva a {
   display: flex; /* Para alinear el contenido del botón */
   align-items: center; /* Centra verticalmente el ícono y el texto */
   justify-content: center; /* Centra horizontalmente el contenido */
   padding: 10px 20px;
   background-color: #61c486;
   color: white;
+  text-decoration: none; /* Elimina el subrayado del enlace */
   font-size: 1.1em;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Suaviza el cambio de color */
 }
 
-.boton-reserva button i {
+.boton-reserva a:hover {
+  background-color: #4ca56e; /* Cambia el color al pasar el mouse */
+}
+
+.boton-reserva a i {
   margin-right: 10px; /* Espaciado entre el ícono y el texto */
   font-size: 1.5em; /* Ajusta el tamaño del ícono */
 }
