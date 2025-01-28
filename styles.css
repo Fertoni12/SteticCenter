@@ -74,7 +74,7 @@ header:hover {
   color: #1393a4;
   font-weight: bold;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: color 0.3s ease;
 }
 
@@ -247,6 +247,7 @@ header:hover {
     width: 100%; /* Aseguramos que el submenú ocupe todo el ancho */
     margin-top: 10px;
     padding-left: 20px;
+    position: static;
   }
 
   .submenu li a {
@@ -255,8 +256,8 @@ header:hover {
   }
 
   /* Mostrar submenú al hacer clic en el ítem del menú */
-  .menu-active .submenu {
-    display: block; /* El submenú se muestra cuando se activa el ítem */
+  .menu-item:hover + .submenu {
+    display: block;
   }
 
   .btn-reserva {
@@ -487,9 +488,30 @@ button:hover {
   position: relative;
 }
 
+/* Estilos para las comparaciones específicas de Moldeo */
+.comparison.moldeo figure {
+  background-image: url(../img/moldeodespues1.jpg); /* Imagen de "después" para moldeo */
+  background-size: cover;
+}
+
+.comparison.moldeo .divisor {
+  background-image: url(../img/moldeoantes1.jpg); /* Imagen de "antes" para moldeo */
+  background-size: cover;
+}
+
+/* Estilo general para las comparaciones (ya existente) */
+.comparison.facial figure {
+  background-image: url(../img/facialdespues.png); /* Imagen de "después" para facial */
+  background-size: cover;
+}
+
+.comparison.facial .divisor {
+  background-image: url(../img/facialantes.png); /* Imagen de "antes" para facial */
+  background-size: cover;
+}
+
 .comparison figure { 
   position: absolute;
-	background-image: url(../img/facialdespues.png);
 	background-size: cover;
 	font-size: 0;
 	width: 100%;
@@ -497,9 +519,7 @@ button:hover {
 	margin: 0; 
 }
 
-
 .comparison .divisor { 
-  background-image: url(../img/facialantes.png);
 	background-size: cover;
 	position: absolute;
 	width: 50%; 

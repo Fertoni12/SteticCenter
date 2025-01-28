@@ -73,7 +73,7 @@ header:hover {
   color: #1393a4;
   font-weight: bold;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: color 0.3s ease;
 }
 
@@ -239,13 +239,14 @@ header:hover {
     padding: 15px;
   }
 
-  /* Submenú dentro del recuadro del menú (móvil) */
-  .submenu {
+   /* Submenú dentro del recuadro del menú (móvil) */
+   .submenu {
     display: none; /* Inicialmente no se muestra */
     background-color: rgba(240, 245, 246, 0.9); /* Fondo más suave */
     width: 100%; /* Aseguramos que el submenú ocupe todo el ancho */
     margin-top: 10px;
     padding-left: 20px;
+    position: static;
   }
 
   .submenu li a {
@@ -254,9 +255,10 @@ header:hover {
   }
 
   /* Mostrar submenú al hacer clic en el ítem del menú */
-  .menu-active .submenu {
-    display: block; /* El submenú se muestra cuando se activa el ítem */
+  .menu-item:hover + .submenu {
+    display: block;
   }
+
 
   .btn-reserva {
     display: flex;
@@ -308,18 +310,17 @@ header:hover {
 .banner-container {
   position: relative;
   width: 100%;
-  height: auto;
-  text-align: left; /* Texto alineado a la izquierda */
+  height: 90vh; /* Ajuste de la altura en proporción al alto de la pantalla */
+  text-align: left;
   overflow: hidden;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra en la parte de abajo */
 }
 
 .banner-container video {
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la relación de aspecto sin distorsionar y recorta el video si es necesario */
   display: block;
-  object-fit: cover;
 }
 
 .overlay {
@@ -328,31 +329,38 @@ header:hover {
   left: 0;
   width: 100%;
   height: 100%;
- /* background: rgba(0, 0, 0, 0.5); /* Malla semitransparente oscura */
-  z-index: 1; /* Encima del video */
+  z-index: 1;
 }
 
 .banner-text {
   position: absolute;
-  top: 45%; /* Centrado verticalmente */
-  left: 5%; /* Posicionado a la izquierda */
-  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
-  z-index: 2; /* Encima de la malla */
+  top: 55%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 2;
+  text-align: left; /* Texto alineado a la izquierda */
+  color: #fff;
+  padding: 0 20px;
   text-align: center;
 }
 
 .banner-text h1 {
-  font-size: 5.5rem; /* Título grande */
+  font-size: 5rem; /* Título grande */
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif; /* Fuente Montserrat ExtraBold */
   font-weight: 800;
   color: #1294a7; /* Color solicitado */
   text-transform: uppercase; /* Texto en mayúsculas */
   line-height: 0.9; /* Espaciado entre las dos líneas */
+  text-shadow: 
+  -1px -1px 0 #ffffff, /* Contorno hacia arriba-izquierda */
+  1px -1px 0 #ffffff, /* Contorno hacia arriba-derecha */
+  -1px 1px 0 #ffffff, /* Contorno hacia abajo-izquierda */
+  1px 1px 0 #ffffff; /* Contorno hacia abajo-derecha */
 }
 
 .banner-text p {
-  font-size: 3.5rem; /* Frase más pequeña */
+  font-size: 3rem; /* Frase más pequeña */
   font-family: 'Tangerine', cursive; /* Fuente Tangerine Bold */
   font-weight: 700; /* Negrita */
   color: #ffffff; /* Color blanco */
@@ -361,35 +369,44 @@ header:hover {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
+  .banner-container {
+    height: 50vh; /* Menos altura en pantallas más pequeñas */
+  }
+
   .banner-text {
-    top: 70%; /* Ajusta la posición para pantallas pequeñas */
-    left: 50%; /* Centrado horizontal */
-    transform: translate(-50%, -60%); /* Centrado vertical y horizontal */
+    top: 60%; /* Ajusta la posición para pantallas pequeñas */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
+    text-align: center; /* Centrado del texto en móviles */
   }
 
   .banner-text h1 {
     font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
-    line-height: 0.8; /* Reduce espacio entre líneas */
   }
 
   .banner-text p {
-    font-size: 1.2rem; /* Ajuste del tamaño de la frase */
+    font-size: 1.5rem; /* Ajuste del tamaño de la frase */
   }
 }
 
+/* Ajustes para pantallas extra pequeñas */
 @media (max-width: 480px) {
+  .banner-container {
+    height: 40vh; /* Aumentamos la reducción para pantallas aún más pequeñas */
+  }
+
   .banner-text {
-    top: 55%; /* Ajusta la posición aún más para pantallas extra pequeñas */
-    left: 50%; /* Centrado horizontal */
-    transform: translate(-50%, -50%); /* Centrado perfecto */
+    top: 55%; /* Ajusta la posición aún más para pantallas muy pequeñas */
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .banner-text h1 {
-    font-size: 1.8rem; /* Título más pequeño */
+    font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
   }
 
   .banner-text p {
-    font-size: 1rem; /* Frase más pequeña */
+    font-size: 1.2rem; /* Frase más pequeña en pantallas pequeñas */
   }
 }
 
@@ -398,7 +415,7 @@ header:hover {
 
 /* Estilos generales para la sección */
 .facial-clinicos-section {
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 20px;
   max-width: 1000px;
 }

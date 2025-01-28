@@ -73,7 +73,7 @@ header:hover {
   color: #1393a4;
   font-weight: bold;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   transition: color 0.3s ease;
 }
 
@@ -238,25 +238,26 @@ header:hover {
     font-size: 20px; /* Aumentar tamaño de la fuente */
     padding: 15px;
   }
+ /* Submenú dentro del recuadro del menú (móvil) */
+ .submenu {
+  display: none; /* Inicialmente no se muestra */
+  background-color: rgba(240, 245, 246, 0.9); /* Fondo más suave */
+  width: 100%; /* Aseguramos que el submenú ocupe todo el ancho */
+  margin-top: 10px;
+  padding-left: 20px;
+  position: static;
+}
 
-  /* Submenú dentro del recuadro del menú (móvil) */
-  .submenu {
-    display: none; /* Inicialmente no se muestra */
-    background-color: rgba(240, 245, 246, 0.9); /* Fondo más suave */
-    width: 100%; /* Aseguramos que el submenú ocupe todo el ancho */
-    margin-top: 10px;
-    padding-left: 20px;
-  }
+.submenu li a {
+  font-size: 16px; /* Tamaño de fuente adecuado para móviles */
+  padding: 10px 0;
+}
 
-  .submenu li a {
-    font-size: 16px; /* Tamaño de fuente adecuado para móviles */
-    padding: 10px 0;
-  }
+/* Mostrar submenú al hacer clic en el ítem del menú */
+.menu-item:hover + .submenu {
+  display: block;
+}
 
-  /* Mostrar submenú al hacer clic en el ítem del menú */
-  .menu-active .submenu {
-    display: block; /* El submenú se muestra cuando se activa el ítem */
-  }
 
   .btn-reserva {
     display: flex;
@@ -308,18 +309,17 @@ header:hover {
 .banner-container {
   position: relative;
   width: 100%;
-  height: auto;
-  text-align: left; /* Texto alineado a la izquierda */
+  height: 90vh; /* Ajuste de la altura en proporción al alto de la pantalla */
+  text-align: left;
   overflow: hidden;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra en la parte de abajo */
 }
 
 .banner-container video {
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la relación de aspecto sin distorsionar y recorta el video si es necesario */
   display: block;
-  object-fit: cover;
 }
 
 .overlay {
@@ -328,31 +328,38 @@ header:hover {
   left: 0;
   width: 100%;
   height: 100%;
- /* background: rgba(0, 0, 0, 0.5); /* Malla semitransparente oscura */
-  z-index: 1; /* Encima del video */
+  z-index: 1;
 }
 
 .banner-text {
   position: absolute;
-  top: 45%; /* Centrado verticalmente */
-  left: 5%; /* Posicionado a la izquierda */
-  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
-  z-index: 2; /* Encima de la malla */
+  top: 55%; /* Centrado vertical */
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 2;
+  text-align: left; /* Texto alineado a la izquierda */
+  color: #fff;
+  padding: 0 20px;
   text-align: center;
 }
 
 .banner-text h1 {
-  font-size: 5.5rem; /* Título grande */
+  font-size: 5rem; /* Título grande */
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif; /* Fuente Montserrat ExtraBold */
   font-weight: 800;
   color: #1294a7; /* Color solicitado */
   text-transform: uppercase; /* Texto en mayúsculas */
   line-height: 0.9; /* Espaciado entre las dos líneas */
+  text-shadow: 
+  -1px -1px 0 #ffffff, /* Contorno hacia arriba-izquierda */
+  1px -1px 0 #ffffff, /* Contorno hacia arriba-derecha */
+  -1px 1px 0 #ffffff, /* Contorno hacia abajo-izquierda */
+  1px 1px 0 #ffffff; /* Contorno hacia abajo-derecha */
 }
 
 .banner-text p {
-  font-size: 3.5rem; /* Frase más pequeña */
+  font-size: 3rem; /* Frase más pequeña */
   font-family: 'Tangerine', cursive; /* Fuente Tangerine Bold */
   font-weight: 700; /* Negrita */
   color: #ffffff; /* Color blanco */
@@ -361,48 +368,58 @@ header:hover {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
+  .banner-container {
+    height: 50vh; /* Menos altura en pantallas más pequeñas */
+  }
+
   .banner-text {
-    top: 70%; /* Ajusta la posición para pantallas pequeñas */
-    left: 50%; /* Centrado horizontal */
-    transform: translate(-50%, -60%); /* Centrado vertical y horizontal */
+    top: 60%; /* Ajusta la posición para pantallas pequeñas */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
+    text-align: center; /* Centrado del texto en móviles */
   }
 
   .banner-text h1 {
     font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
-    line-height: 0.8; /* Reduce espacio entre líneas */
   }
 
   .banner-text p {
-    font-size: 1.2rem; /* Ajuste del tamaño de la frase */
+    font-size: 1.5rem; /* Ajuste del tamaño de la frase */
   }
 }
 
+/* Ajustes para pantallas extra pequeñas */
 @media (max-width: 480px) {
+  .banner-container {
+    height: 40vh; /* Aumentamos la reducción para pantallas aún más pequeñas */
+  }
+
   .banner-text {
-    top: 55%; /* Ajusta la posición aún más para pantallas extra pequeñas */
-    left: 50%; /* Centrado horizontal */
-    transform: translate(-50%, -50%); /* Centrado perfecto */
+    top: 55%; /* Ajusta la posición aún más para pantallas muy pequeñas */
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .banner-text h1 {
-    font-size: 1.8rem; /* Título más pequeño */
+    font-size: 2.5rem; /* Título más pequeño en pantallas pequeñas */
   }
 
   .banner-text p {
-    font-size: 1rem; /* Frase más pequeña */
+    font-size: 1.2rem; /* Frase más pequeña en pantallas pequeñas */
   }
 }
+
 
 /* ______________________________________________________________ */
 
 /* Estilos generales para la sección */
-.masajes-relajantes-section {
-  margin: 40px auto;
+.lipolaser-section {
+  margin: 20px auto;
   padding: 20px;
   max-width: 1000px;
 }
 
-.masajes-relajantes-title {
+.lipolaser-title {
   font-size: 2.7rem;
   color: black;
   margin-bottom: 40px;
@@ -410,8 +427,8 @@ header:hover {
   text-align: center;
 }
 
-/* Estilos generales para la sección de Masaje Relajante */
-.masajes-container {
+/* Estilos generales para la sección de Lipoláser */
+.lipolaser-container {
   display: flex;
   justify-content: space-between;
   margin: 20px;
@@ -424,7 +441,7 @@ header:hover {
 }
 
 /* Parte izquierda (centrado en el contenedor sin afectar el texto) */
-.masajes-left {
+.lipolaser-left {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -436,36 +453,37 @@ header:hover {
   height: 100%;
 }
 
-.masajes-title {
+.lipolaser-title-left {
   font-size: 1.8rem;
   color: #61C486;
   margin-bottom: 5px;
 }
 
-.masajes-description {
+.lipolaser-description {
   font-size: 0.9rem;
   color: #333;
   margin-bottom: 15px;
 }
 
-/* Lista personalizada con check */
-.masajes-items {
+/* Lista personalizada con un solo punto inicial */
+.lipolaser-items {
   list-style: none; /* Elimina el estilo por defecto de la lista */
   padding: 0;
   margin: 0;
 }
 
-.masajes-item {
+.lipolaser-item {
   display: flex;
-  align-items: flex-start; /* Alinea el check con los textos */
-  gap: 10px; /* Espacio entre el check y los textos */
+  align-items: flex-start; /* Alinea el punto con los textos */
+  gap: 10px; /* Espacio entre el punto y los textos */
   margin-bottom: 5px;
   margin-top: 5px;
 }
 
-.check-item {
-  font-size: 1.2rem; /* Tamaño del check */
-  color: #1294A7; /* Color del check */
+.main-item {
+  font-size: 1.2rem; /* Tamaño del punto */
+  color: #1294A7; /* Color del punto */
+  margin-right: 1px; /* Espaciado entre el punto y el texto */
 }
 
 .sub-items {
@@ -474,7 +492,7 @@ header:hover {
   line-height: 1.5; /* Espaciado entre líneas */
 }
 
-.masajes-cauterizer {
+.lipolaser-cauterizer {
   display: flex;
   align-items: center;
   margin-top: 15px;
@@ -495,7 +513,7 @@ header:hover {
 }
 
 /* Precios */
-.masajes-prices {
+.lipolaser-prices {
   margin-top: 20px;
 }
 
@@ -521,14 +539,12 @@ header:hover {
   font-weight: bold;
 }
 
-
 .price-value {
   font-size: 1.8rem;
   color: #333;
   font-weight: bold;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-top: 5px;
-
 }
 
 .price-value sup {
@@ -536,9 +552,8 @@ header:hover {
   vertical-align: super; /* Eleva el número */
 }
 
-
 /* Parte derecha (centrado vertical y horizontal) */
-.masajes-right {
+.lipolaser-right {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -546,7 +561,7 @@ header:hover {
   align-items: center;
 }
 
-.masajes-image {
+.lipolaser-image {
   width: 100%;
   max-width: 300px;
   border-radius: 8px;
@@ -554,7 +569,7 @@ header:hover {
   transition: transform 0.3s ease;
 }
 
-.masajes-image:hover {
+.lipolaser-image:hover {
   transform: scale(1.05);
 }
 
@@ -590,31 +605,31 @@ header:hover {
 
 /* Estilos de responsividad */
 @media (max-width: 768px) {
-  .masajes-relajantes-title {
+  .lipolaser-title {
     font-size: 2.5rem;
   }
 
-  .masajes-container {
+  .lipolaser-container {
     flex-direction: column;
   }
 
-  .masajes-left {
+  .lipolaser-left {
     padding: 15px;
   }
 
-  .masajes-right {
+  .lipolaser-right {
     margin-top: 20px;
   }
 
-  .masajes-title {
+  .lipolaser-title-left {
     font-size: 1.5rem;
   }
 
-  .masajes-description {
+  .lipolaser-description {
     font-size: 0.8rem;
   }
 
-  .price-text{
+  .price-text {
     font-size: 1rem;
   }
 }
