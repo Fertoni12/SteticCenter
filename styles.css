@@ -441,7 +441,7 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px; /* Espacio entre los cuadros */
+  gap: 150px; /* Espacio entre los cuadros */
   width: 100%;
   box-sizing: border-box;
 }
@@ -637,6 +637,8 @@ button:hover {
   }
 }
 
+
+
 /* _____________________________________________________________________________________ */
 
 .servicios {
@@ -777,7 +779,7 @@ a.card {
 .imagen-ancha {
   width: 70%; /* Reduce el ancho al 80% para hacerla más pequeña */
   height: auto; /* Mantiene la proporción de la imagen */
-  background-image: url(../img/tulugarderelajacion1.png); /* Imagen de fondo */
+  background-image: url(../img/tulugarderelajacion.png); /* Imagen de fondo */
   background-size: cover; /* Asegura que la imagen cubra el área */
   background-position: center; /* Centra la imagen */
   margin: 40px auto; /* Espaciado superior y centra la imagen horizontalmente */
