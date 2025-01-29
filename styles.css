@@ -316,6 +316,19 @@ header:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Sombra en la parte de abajo */
 }
 
+/* Gradiente en la parte inferior del slider */
+.slider-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 170px; /* Aumentar la altura del gradiente */
+  background: linear-gradient(to top, rgba(97, 196, 134, 0.6), rgba(97, 196, 134, 0.5), transparent);
+  pointer-events: none; /* Para que no interfiera con la navegación */
+  z-index: 0;
+}
+
 .slider-images {
   display: flex;
   transition: transform 1s ease-in-out;
@@ -340,7 +353,12 @@ button {
   border-radius: 50%;
 }
 
-button:hover {
+.prev:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.next:hover {
   background-color: rgba(255, 255, 255, 0.8);
   transform: scale(1.1);
 }
@@ -361,6 +379,7 @@ button:hover {
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+  z-index: 1;
 }
 
 .dot {
@@ -389,12 +408,30 @@ button:hover {
       font-size: 20px;
       padding: 8px;
   }
+
+  .slider-images {
+    margin-top: 80px;
+  }
+  
+  .prev {
+    margin-top: 40px;
+  }
+  
+  .next {
+    margin-top: 45px;
+  }
+
+  .slider-container::after {
+    height: 100px; /* Aumentar la altura del gradiente */
+
+  }
+  
 }
 
 /* ______________________________________________________________ */
 
 
-/* Estilo principal para la sección de Casos Exitosos de Renovación */
+/* Sección de Casos Exitosos de Renovación */
 .casos-renovacion {
   background-color: transparent;
   background-size: cover;
@@ -436,18 +473,69 @@ button:hover {
 }
 
 
-/* Contenedor de las dos secciones (Moldeo y Facial) */
-.contenedor-casos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 150px; /* Espacio entre los cuadros */
+/* Estilo de las flechas */
+.flechas-nav {
+  position: absolute;
+  top: 54%;
   width: 100%;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  z-index: 1;
+  margin-left: -2.4vh;
 }
 
-/* Estilo para cada caso (Moldeo o Facial) */
+/* Estilo de cada flecha */
+.flecha {
+  background-color: #1393a4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.flecha.izquierda {
+  margin-left: -20px;
+}
+
+.flecha.derecha {
+  margin-right: -20px;
+}
+
+.flecha:hover {
+  background-color: #61c486;
+}
+
+
+/* Estilo para el contenedor de los casos */
+.contenedor-casos-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Modificado: contenedor para colocar los casos uno al lado del otro */
+.contenedor-casos {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  gap: 130px; /* Ajusta el espacio entre los casos */
+  flex-wrap: wrap
+}
+
+/* Estilo para cada caso */
 .caso {
+  position: relative;
   flex: 1 1 400px; /* Ajusta el tamaño base de cada cuadro */
   max-width: 400px; /* Tamaño máximo */
   padding: 20px;
@@ -460,6 +548,7 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
 
 .subtitulo-casos {
   text-align: center;
@@ -488,30 +577,74 @@ button:hover {
   padding-bottom: 100%;
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
 /* Estilos para las comparaciones específicas de Moldeo */
 .comparison.moldeo figure {
-  background-image: url(../img/moldeodespues1.jpg); /* Imagen de "después" para moldeo */
+  background-image: url(../img/moldeodespues.jpg); /* Imagen de "después" para moldeo */
   background-size: cover;
 }
 
 .comparison.moldeo .divisor {
-  background-image: url(../img/moldeoantes1.jpg); /* Imagen de "antes" para moldeo */
+  background-image: url(../img/moldeoantes.jpg); /* Imagen de "antes" para moldeo */
   background-size: cover;
 }
 
-/* Estilo general para las comparaciones (ya existente) */
+/* Estilos para las comparaciones específicas */
+.comparison.moldeo1 figure {
+  background-image: url(../img/moldeodespues1.png);
+  background-size: cover;
+}
+
+.comparison.moldeo1 .divisor {
+  background-image: url(../img/moldeoantes1.png);
+  background-size: cover;
+}
+
+.comparison.moldeo2 figure {
+  background-image: url(../img/moldeodespues2.png);
+  background-size: cover;
+}
+
+.comparison.moldeo2 .divisor {
+  background-image: url(../img/moldeoantes2.png);
+  background-size: cover;
+}
+
+/* ______________ */
+
+/* Estilos para las comparaciones específicas de Moldeo */
 .comparison.facial figure {
-  background-image: url(../img/facialdespues.png); /* Imagen de "después" para facial */
+  background-image: url(../img/facialdespues.png); /* Imagen de "después" para moldeo */
   background-size: cover;
 }
 
 .comparison.facial .divisor {
-  background-image: url(../img/facialantes.png); /* Imagen de "antes" para facial */
+  background-image: url(../img/facialantes.png); /* Imagen de "antes" para moldeo */
   background-size: cover;
 }
 
+/* Estilos para las comparaciones específicas */
+.comparison.facial1 figure {
+  background-image: url(../img/facialdespues1.png);
+  background-size: cover;
+}
+
+.comparison.facial1 .divisor {
+  background-image: url(../img/facialantes1.png);
+  background-size: cover;
+}
+
+.comparison.facial2 figure {
+  background-image: url(../img/facialdespues2.png);
+  background-size: cover;
+}
+
+.comparison.facial2 .divisor {
+  background-image: url(../img/facialantes2.png);
+  background-size: cover;
+}
 
 
 .comparison figure { 
@@ -617,6 +750,52 @@ button:hover {
   background-color: transparent; 
   position: relative;
   outline: none;    
+}
+
+/* Responsividad: Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor-casos {
+    gap: 30px; /* Reducir espacio entre los casos */
+  }
+
+  .caso {
+    flex: 1 1 300px; /* Ajustar tamaño base de los cuadros */
+    max-width: 300px; /* Tamaño máximo para pantallas pequeñas */
+    margin-bottom: 10px; /* Reducir margen inferior */
+  }
+
+  /* Flechas: ajustar el tamaño y espacio */
+  .flechas-nav {
+    margin-left: -2.4vh; /* Ajuste de margen */
+  }
+
+  .flecha {
+    width: 30px; /* Ajustar tamaño */
+    height: 30px; /* Ajustar tamaño */
+    font-size: 1.2em; /* Ajustar tamaño de texto */
+  }
+}
+
+@media (max-width: 768px) and (min-width: 629px) {
+  .contenedor-casos {
+    gap: 50px; /* Reduce el espacio entre los casos para evitar colisiones */
+  }
+
+  .caso {
+    flex: 1 1 250px; /* Ajustar tamaño base de los cuadros */
+    max-width: 250px; /* Tamaño máximo para pantallas pequeñas */
+    margin-bottom: 10px; /* Reducir margen inferior */
+  }
+
+  .flechas-nav {
+    top: 65%; /* Baja un poco las flechas para que no se sobrepongan */
+  }
+
+  .flecha {
+    width: 30px; /* Reduce el tamaño de las flechas */
+    height: 30px;
+    font-size: 1.2em; /* Reduce el tamaño del icono */
+  }
 }
 
 

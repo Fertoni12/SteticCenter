@@ -46,7 +46,7 @@ setInterval(() => {
 
 // _________________________________________________________________
 
-// Eventos para los botones de cambio de imagen
+ // Eventos para los botones de cambio de imagen
 // Seleccionamos todas las comparaciones
 var comparisons = document.querySelectorAll(".comparison");
 
@@ -67,12 +67,54 @@ function initializeComparison(comparison) {
 
   // Inicializamos la posición del divisor
   moveDivisor();
-
 }
 
-// Inicializamos todas las comparaciones en la página
+// Variables para manejar el desplazamiento entre casos
+let currentMoldeoIndex = 0;
+let currentFacialIndex = 0;
+
+// Casos de moldeo y facial
+const moldeoCasos = document.querySelectorAll('.caso.moldeo');
+const facialCasos = document.querySelectorAll('.caso.facial');
+
+function showMoldeoCase(index) {
+  moldeoCasos.forEach((caso, i) => {
+    caso.style.display = (i === index) ? 'block' : 'none';
+  });
+}
+
+function showFacialCase(index) {
+  facialCasos.forEach((caso, i) => {
+    caso.style.display = (i === index) ? 'block' : 'none';
+  });
+}
+
+// Funciones para mover los casos
+function nextMoldeoCase() {
+  currentMoldeoIndex = (currentMoldeoIndex + 1) % moldeoCasos.length;
+  showMoldeoCase(currentMoldeoIndex);
+}
+
+function prevMoldeoCase() {
+  currentMoldeoIndex = (currentMoldeoIndex - 1 + moldeoCasos.length) % moldeoCasos.length;
+  showMoldeoCase(currentMoldeoIndex);
+}
+
+function nextFacialCase() {
+  currentFacialIndex = (currentFacialIndex + 1) % facialCasos.length;
+  showFacialCase(currentFacialIndex);
+}
+
+function prevFacialCase() {
+  currentFacialIndex = (currentFacialIndex - 1 + facialCasos.length) % facialCasos.length;
+  showFacialCase(currentFacialIndex);
+}
+
+// Inicializamos todas las comparaciones y mostramos el primer caso al cargar la página
 window.onload = function() {
-  comparisons.forEach(initializeComparison);
+  comparisons.forEach(initializeComparison);  // Inicializa las comparaciones
+  showMoldeoCase(currentMoldeoIndex);  // Muestra el primer caso de moldeo
+  showFacialCase(currentFacialIndex);  // Muestra el primer caso facial
 };
 
 
